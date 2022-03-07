@@ -22,7 +22,7 @@ public protocol Scene {
 	func render()
 	
 	/// Called every frame to draw the scene
-	func draw()
+	func draw(using renderer: Renderer2D)
 	
 	/// Called when the scene is about to be hidden but should stay in memory
 	mutating func sleep()

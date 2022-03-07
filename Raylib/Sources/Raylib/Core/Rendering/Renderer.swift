@@ -11,36 +11,36 @@ import CRaylib
 
 public struct Renderer {
 	
-	//MARK: Background
+	//MARK: Properties
 	
-	/// The window's background color
+	/// Window background color when using ``Applet`` or ``App``
 	public static var background = Color.raywhite
 	
-	/// Set background color (framebuffer clear color)
-	@inlinable public static func clear(to color: Color) {
-		ClearBackground(color.toRaylib)
-	}
+	/// Default line thickness
+	public static var thickness: Float = 1
+	
+	/// Default color
+	public static var color = Color.gray
+	
+	/// Default image and texture tint
+	public static var tint = Color.white
+	
+	/// Default text size
+	public static var pointSize = 20
+	
+	/// Default text color
+	public static var textColor = Color.black
+	
+	/// Default text alignment
+	public static var textAlignment = TextAlignment.left
 	
 	//MARK: Commands
 	
 	/// Setup canvas (framebuffer) to start drawing; End canvas drawing and swap buffers (double buffering)
-	@inlinable public static func render(draw: () -> Void) {
+	@inlinable public static func render(draw: (Renderer2D) -> Void) {
 		BeginDrawing()
-		draw()
+		draw(Renderer2D())
 		EndDrawing()
 	}
 	
-	/// Begin scissor mode (define screen area for following drawing); End scissor mode
-	@inlinable public static func render(at x: Int, _ y: Int, size width: Int, by height: Int, draw: () -> Void) {
-		BeginScissorMode(x.toInt32, y.toInt32, width.toInt32, height.toInt32)
-		draw()
-		EndScissorMode()
-	}
-	
 }
-
-//MARK: - Rendering Modes
-
-public struct Renderer2D { }
-public struct OutlineRenderer2D { }
-public struct Renderer3D { }

@@ -18,7 +18,7 @@ import Raylib
 	
 	init() {
 		Window.create(800, by: 450, title: "Example - Core - Letterboxed Window")
-		Window.enable(.resizeable, .vsync)
+		Window.enable(.resizable, .vsync)
 		Window.resize(minimum: 320, by: 240)
 		Renderer.background = .black
 		Application.target(fps: 60)
@@ -44,26 +44,26 @@ import Raylib
 		virtualMouse.clamp(between: .zero, and: game)
 		
 		Mouse.offset(by: transformation)
-		Mouse.scale(to: .one / scale)
+		Mouse.scale(by: .one / scale)
 	}
 	
 	func render() {
-		target.render {
-			Renderer.clear(to: .raywhite)
+		target.render { renderer in
+			renderer.clear(to: .raywhite)
 			
 			for i in colors.indices {
-				Renderer2D.rectangle(at: 0, (game.y / 10).toInt * i, size: game.x.toInt, (game.y / 10).toInt, color: colors[i])
+				renderer.rectangle(at: 0, (game.y / 10).toInt * i, size: game.x.toInt, (game.y / 10).toInt, color: colors[i])
 			}
 			
-			Renderer.textSize = 20
-			Renderer2D.text("If executed inside a window,\nyou can resize the window,\nand see the screen scaling!", at: 10, 25, color: .white)
-			Renderer2D.text("Default Mouse: [\(Mouse.x), \(Mouse.y)]", at: 350, 25, color: .green)
-			Renderer2D.text("Virtual Mouse: [\(virtualMouse.x.toInt), \(virtualMouse.y.toInt)]", at: 350, 55, color: .yellow)
+			Renderer.pointSize = 20
+			renderer.text("If executed inside a window,\nyou can resize the window,\nand see the screen scaling!", at: 10, 25, color: .white)
+			renderer.text("Default Mouse: [\(Mouse.x), \(Mouse.y)]", at: 350, 25, color: .green)
+			renderer.text("Virtual Mouse: [\(virtualMouse.x.toInt), \(virtualMouse.y.toInt)]", at: 350, 55, color: .yellow)
 		}
 	}
 	
-	func draw() {
-		Renderer2D.target(target, at: .zero, to: Rectangle(at: -transformation, size: game * scale))
+	func draw(using renderer: Renderer2D) {
+		renderer.target(target, at: .zero, to: Rectangle(at: -transformation, size: game * scale))
 	}
 	
 }

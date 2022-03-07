@@ -9,7 +9,7 @@ import Raylib
 
 //MARK: - Game Over Scene
 
-public struct GameOverScene: Scene {
+struct GameOverScene: Scene {
 	
 	//MARK: Initialization
 	
@@ -19,7 +19,7 @@ public struct GameOverScene: Scene {
 	
 	//MARK: Simulation Methods
 	
-	public func update() -> SceneAction {
+	func update() -> SceneAction {
 		if Keyboard.enter.isPressed {
 			return .replace(with: GameplayScene())
 		}
@@ -29,8 +29,8 @@ public struct GameOverScene: Scene {
 	
 	//MARK: Drawing Methods
 	
-	public func draw() {
-		Renderer2D.text(center: "PRESS [ENTER] TO PLAY AGAIN", size: 40, color: .gray)
+	func draw(using renderer: Renderer2D) {
+		renderer.text(center: "PRESS [ENTER] TO PLAY AGAIN", size: 40, color: .gray)
 	}
 	
 }

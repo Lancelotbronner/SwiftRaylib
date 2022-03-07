@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  File
-//
-//  Created by Christophe Bronner on 2021-09-01.
-//
-
 import Raylib
 
 @main struct BasicWindow: Applet {
@@ -14,8 +7,8 @@ import Raylib
 		Application.target(fps: 60)
 	}
 	
-	func draw() {
-		Renderer2D.text("Congrats! You created your first window!", at: 190, 200, color: Color.lightGray)
+	func draw(using renderer: Renderer2D) {
+		renderer.text(center: "Congrats! You created your first window!", color: Color.lightGray)
 	}
 
 }

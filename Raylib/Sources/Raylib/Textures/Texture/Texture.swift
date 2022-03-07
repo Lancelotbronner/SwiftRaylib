@@ -31,10 +31,6 @@ extension Texture {
 		Vector2f(toRaylib.width.toFloat, toRaylib.height.toFloat)
 	}
 	
-	@inlinable public var toImage: Image {
-		Image(underlying: LoadImageFromTexture(toRaylib))
-	}
-	
 	//MARK: Methods
 	
 	@inlinable public func filter(using algorithm: TextureFilter) {
@@ -46,11 +42,18 @@ extension Texture {
 	}
 	
 	@inlinable public func update(with image: Image) {
-		UpdateTexture(toRaylib, image.underlying.data)
+		UpdateTexture(toRaylib, image.implementation.raylib.data)
 	}
 	
 	@inlinable public func update(area: Rectangle, with image: Image) {
-		UpdateTextureRec(toRaylib, area.toRaylib, image.underlying.data)
+		UpdateTextureRec(toRaylib, area.toRaylib, image.implementation.raylib.data)
+	}
+	
+	//MARK: Conversion Methods
+	
+	/// Retrieve from GPU
+	@inlinable public func convertToImage() -> Image {
+		LoadImageFromTexture(toRaylib).toManaged.toSwift
 	}
 	
 }
@@ -59,11 +62,16 @@ extension Texture {
 
 extension CRaylib.Texture: MemoryManageable {
 	
-	@inlinable public static func unload(instance: CRaylib.Texture2D) {
+	@inlinable public static func unload(instance: CRaylib.Texture) {
 		UnloadTexture(instance)
 	}
 	
 }
 
-extension Unmanaged: Texture where Subject == CRaylib.Texture { }
-extension Managed: Texture where Subject == CRaylib.Texture { }
+extension Unmanaged: Texture where Subject == CRaylib.Texture {
+	@inlinable public var toRaylib: Subject { underlying }
+}
+
+extension Managed: Texture where Subject == CRaylib.Texture {
+	@inlinable public var toRaylib: Subject { underlying }
+}

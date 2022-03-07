@@ -14,7 +14,7 @@ public protocol Applet {
 	mutating func load()
 	mutating func update()
 	func render()
-	func draw()
+	func draw(using renderer: Renderer2D)
 	mutating func unload()
 	
 }
@@ -42,9 +42,9 @@ extension Applet {
 		Application.run {
 			app.update()
 			app.render()
-			Renderer.render {
-				Renderer.clear(to: Renderer.background)
-				app.draw()
+			Renderer.render { renderer in
+				renderer.clear(to: Renderer.background)
+				app.draw(using: renderer)
 			}
 		}
 		

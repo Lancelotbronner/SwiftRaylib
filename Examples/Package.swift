@@ -27,6 +27,7 @@ let package = Package(
 		.example(.core, "2D Camera Platformer"),
 		.example(.core, "Letterboxed Window"),
 		.example(.core, "Drop Files"),
+		.example(.core, "Scissor Test"),
 //		.example(.core, "3D First Person"),
 		
 		// Shapes Module
@@ -40,23 +41,38 @@ let package = Package(
 			.copy("raylib_logo.png")
 		]),
 		.example(.textures, "Image Generation"),
+		.example(.textures, "Blend Modes", [
+			.copy("background.png"),
+			.copy("foreground.png"),
+		], ["LICENSE.md"]),
 		
 		// Classic Games
 		.classic("Arkanoid"),
 		.classic("Platformer"),
+		.classic("Snake"),
+		
+		// Games
+		.game("RPG Example", [
+			.copy("Resources/Icons"),
+			.copy("Resources/Levels"),
+			.copy("Resources/Music"),
+			.copy("Resources/Sounds"),
+			.copy("Resources/tilemap.png"),
+		]),
 	]
 )
 
 //MARK: - Templates
 
 extension Target {
-	static func example(_ module: RaylibModule, _ name: String, _ resources: [Resource]? = nil) -> Target {
+	static func example(_ module: RaylibModule, _ name: String, _ resources: [Resource]? = nil, _ exclude: [String]? = nil) -> Target {
 		let target = Target.executableTarget(
 			name: "\(module.rawValue) - \(name)",
 			dependencies: [
 				.product(name: "SwiftRaylib", package: "Raylib"),
 			],
 			path: "Sources/\(module.rawValue)/\(name)",
+			exclude: exclude ?? [],
 			resources: resources)
 		return target
 	}

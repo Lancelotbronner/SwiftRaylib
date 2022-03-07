@@ -25,15 +25,15 @@ public struct Rectangle {
 	@usableFromInline var centerY: Float { y + height / 2 }
 	@usableFromInline var endY: Float { y + height }
 	
-	@inlinable public var topLeft: Vector2f { Vector2f(startX, endY) }
-	@inlinable public var top: Vector2f { Vector2f(centerX, endY) }
-	@inlinable public var topRight: Vector2f { Vector2f(endX, endY) }
+	@inlinable public var topLeft: Vector2f { Vector2f(startX, startY) }
+	@inlinable public var top: Vector2f { Vector2f(centerX, startY) }
+	@inlinable public var topRight: Vector2f { Vector2f(endX, startY) }
 	@inlinable public var left: Vector2f { Vector2f(startX, centerY) }
 	@inlinable public var center: Vector2f { Vector2f(centerX, centerY) }
 	@inlinable public var right: Vector2f { Vector2f(endX, centerY) }
-	@inlinable public var bottomLeft: Vector2f { Vector2f(startX, startY) }
-	@inlinable public var bottom: Vector2f { Vector2f(centerX, startY) }
-	@inlinable public var bottomRight: Vector2f { Vector2f(endX, startY) }
+	@inlinable public var bottomLeft: Vector2f { Vector2f(startX, endY) }
+	@inlinable public var bottom: Vector2f { Vector2f(centerX, endY) }
+	@inlinable public var bottomRight: Vector2f { Vector2f(endX, endY) }
 	
 	@inlinable public var x: Float {
 		get { position.x }

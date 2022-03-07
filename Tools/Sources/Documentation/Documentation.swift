@@ -22,6 +22,7 @@ struct DocumentationCommand: ParsableCommand {
 	
 	// TODO: Header Parsing
 	// - Comments above declarations should be parsed as documentation
+	// - Asides as comments above declarations should be owned by the symbol
 	
 	// TODO: Cleanup Map
 	// - rename to "repair-map"
@@ -31,14 +32,15 @@ struct DocumentationCommand: ParsableCommand {
 	// - first column: "Declaration" for C symbol
 	// - second column: "Interpretation" for behavior
 	//     * "bind" to indicate swift symbol will follow
-	//     * "useless" to indicate symbol is managed or from the Standard Library
+	//     * "managed" to indicate symbol is managed
+	//     * "std" to indicate symbol is replaced by Standard Library methods
 	//     * "ignore" to ignore the symbol, removing it from the document
 	// - third column: "Bindings" for swift symbols
 	// - Move ignore logic from program to symbol map
 	
 	// TODO: Processing
 	// - Replace C comment symbols with Swift symbol link
-	// - Move string literal to template file using replace tokens instead (as %TOKEN%
+	// - Move string literal to template file using replace tokens instead (as %TOKEN%)
 	//		* CONTENT
 	//		? TABLE_OF_CONTENTS
 	//		* RAYLIB_VERSION

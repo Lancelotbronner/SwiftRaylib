@@ -18,6 +18,12 @@ public struct Ring {
 	public var start: Angle<Float>
 	public var end: Angle<Float>
 	
+	//MARK: Computed Properties
+	
+	//	@inlinable public var frame: Rectangle {
+	//		// ???
+	//	}
+	
 	//MARK: Initialization
 	
 	@inlinable public init(at position: Vector2f, inner innerRadius: Float, outer outerRadius: Float, segments: Int? = nil, from start: Angle<Float>, to end: Angle<Float>) {

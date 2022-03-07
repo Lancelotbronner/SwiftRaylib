@@ -77,6 +77,30 @@ extension CRaylib.Vector2 {
 	
 }
 
+//MARK: - Integer Conversion
+
+extension Vector2 where Scalar: BinaryInteger {
+	
+	@inlinable public var toInt: Vector2i {
+		map(\.toInt)
+	}
+	
+	@inlinable public var toFloat: Vector2f {
+		map(\.toFloat)
+	}
+	
+}
+
+//MARK: - Floating Point Conversion
+
+extension Vector2 where Scalar: BinaryFloatingPoint {
+	
+	@inlinable public var toInt: Vector2i {
+		map(\.toInt)
+	}
+	
+}
+
 //MARK: - Trigonometry
 
 extension Vector2 where Scalar: TrigonometryFunctions {

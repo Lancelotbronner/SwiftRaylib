@@ -9,7 +9,7 @@ import Raylib
 
 //MARK: - Game Over Scene
 
-public struct GameOverScene: Scene {
+struct GameOverScene: Scene {
 	
 	//MARK: Properties
 	
@@ -27,9 +27,9 @@ public struct GameOverScene: Scene {
 	
 	//MARK: Drawing Methods
 	
-	public func draw() {
-		Renderer2D.text("SCORE: \(score)", at: Window.width / 2, 50, size: 40, alignment: .center, color: .black)
-		Renderer2D.text(center: "PRESS [ENTER] TO PLAY AGAIN", offset: 0, -50, size: 40, color: .gray)
+	func draw(using renderer: Renderer2D) {
+		renderer.text("SCORE: \(score)", at: Window.width / 2, 50, size: 40, alignment: .center, color: .black)
+		renderer.text(center: "PRESS [ENTER] TO PLAY AGAIN", offset: 0, -50, size: 40, color: .gray)
 	}
 	
 }

@@ -1,10 +1,10 @@
 # Cheatsheet
 
-**raylib v4.0    |    bindings 40%**
+**raylib v4.0    |    bindings 46%**
 
 This document presents a detailed overview of the raylib cheatsheet along with its corresponding Swift symbol(s).
 
-This document currently has a 40% coverage, contributions are welcome!
+This document currently has a 46% coverage, contributions are welcome!
 
 > Note: This file is generated (and badly so), any improvement suggestions are welcome.
 
@@ -15,7 +15,7 @@ This symbol has no documentation
 Language | Symbol
 --- | ---
 C | `#define RAYLIB_VERSION;`
-Swift | *unimplemented*
+Swift | ``Raylib/version``
 
 ## Some basic Defines
 
@@ -2810,7 +2810,7 @@ Shader location: vertex attribute: normal
 Language | Symbol
 --- | ---
 C | `ShaderLocationIndex SHADER_LOC_VERTEX_NORMAL;`
-Swift | *unimplemented*
+Swift | ``BuiltinUniform/normal``
 
 #### SHADER_LOC_VERTEX_TEXCOORD02
 
@@ -2837,7 +2837,7 @@ Shader location: vertex attribute: position
 Language | Symbol
 --- | ---
 C | `ShaderLocationIndex SHADER_LOC_VERTEX_POSITION;`
-Swift | *unimplemented*
+Swift | ``BuiltinUniform/position``
 
 #### SHADER_LOC_MAP_DIFFUSE
 
@@ -2887,7 +2887,7 @@ Shader uniform type: ivec4 (4 int)
 Language | Symbol
 --- | ---
 C | `ShaderUniformDataType SHADER_UNIFORM_IVEC4;`
-Swift | *unimplemented*
+Swift | 
 
 #### SHADER_UNIFORM_IVEC3
 
@@ -2896,7 +2896,7 @@ Shader uniform type: ivec3 (3 int)
 Language | Symbol
 --- | ---
 C | `ShaderUniformDataType SHADER_UNIFORM_IVEC3;`
-Swift | *unimplemented*
+Swift | 
 
 #### SHADER_UNIFORM_IVEC2
 
@@ -2905,7 +2905,7 @@ Shader uniform type: ivec2 (2 int)
 Language | Symbol
 --- | ---
 C | `ShaderUniformDataType SHADER_UNIFORM_IVEC2;`
-Swift | *unimplemented*
+Swift | 
 
 #### SHADER_UNIFORM_INT
 
@@ -2923,7 +2923,7 @@ Shader uniform type: vec4 (4 float)
 Language | Symbol
 --- | ---
 C | `ShaderUniformDataType SHADER_UNIFORM_VEC4;`
-Swift | *unimplemented*
+Swift | 
 
 #### SHADER_UNIFORM_VEC3
 
@@ -2932,7 +2932,7 @@ Shader uniform type: vec3 (3 float)
 Language | Symbol
 --- | ---
 C | `ShaderUniformDataType SHADER_UNIFORM_VEC3;`
-Swift | *unimplemented*
+Swift | 
 
 #### SHADER_UNIFORM_VEC2
 
@@ -2941,7 +2941,7 @@ Shader uniform type: vec2 (2 float)
 Language | Symbol
 --- | ---
 C | `ShaderUniformDataType SHADER_UNIFORM_VEC2;`
-Swift | *unimplemented*
+Swift | 
 
 #### SHADER_UNIFORM_FLOAT
 
@@ -3958,7 +3958,7 @@ Set monitor for the current window (fullscreen mode)
 Language | Symbol
 --- | ---
 C | `void SetWindowMonitor(int monitor);`
-Swift | *unimplemented*
+Swift | ``Window/assign(to:)``
 
 #### SetWindowMinSize
 
@@ -4213,7 +4213,7 @@ Disables cursor (lock cursor)
 Language | Symbol
 --- | ---
 C | `void DisableCursor(void);`
-Swift | *unimplemented*
+Swift | ``Cursor/disable()``
 
 #### IsCursorOnScreen
 
@@ -5676,7 +5676,7 @@ Draw a pixel
 Language | Symbol
 --- | ---
 C | `void DrawPixel(int posX, int posY, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/pixel(at:_:_:)``
 
 #### DrawPixelV
 
@@ -5685,7 +5685,7 @@ Draw a pixel
 Language | Symbol
 --- | ---
 C | `void DrawPixelV(Vector2 position, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/pixel(at:_:)``
 
 #### DrawLine
 
@@ -5694,7 +5694,7 @@ Draw a line
 Language | Symbol
 --- | ---
 C | `void DrawLine(int startPosX, int startPosY, int endPosX, int endPosY, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/line(from:_:to:_:color:)``
 
 #### DrawLineV
 
@@ -5703,7 +5703,7 @@ Draw a line
 Language | Symbol
 --- | ---
 C | `void DrawLineV(Vector2 startPos, Vector2 endPos, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/line(from:to:color:)``
 
 #### DrawLineEx
 
@@ -5712,7 +5712,7 @@ Draw a line defining thickness
 Language | Symbol
 --- | ---
 C | `void DrawLineEx(Vector2 startPos, Vector2 endPos, float thick, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/line(from:to:thickness:color:)`` and ``Renderer2D/line(from:_:to:_:thickness:color:)``
 
 #### DrawLineBezier
 
@@ -5721,7 +5721,7 @@ Draw a line using cubic-bezier curves in-out
 Language | Symbol
 --- | ---
 C | `void DrawLineBezier(Vector2 startPos, Vector2 endPos, float thick, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/bezier(from:to:thickness:color:)`` and ``Renderer2D/bezier(from:_:to:_:thickness:color:)``
 
 #### DrawLineBezierQuad
 
@@ -5730,7 +5730,7 @@ Draw line using quadratic bezier curves with a control point
 Language | Symbol
 --- | ---
 C | `void DrawLineBezierQuad(Vector2 startPos, Vector2 endPos, Vector2 controlPos, float thick, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/bezier(from:to:control:thickness:color:)`` and ``Renderer2D/bezier(from:_:to:_:control:_:thickness:color:)``
 
 #### DrawLineBezierCubic
 
@@ -5748,7 +5748,7 @@ Draw lines sequence
 Language | Symbol
 --- | ---
 C | `void DrawLineStrip(Vector2 *points, int pointCount, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/lines(_:color:)``
 
 #### DrawCircle
 
@@ -5757,7 +5757,7 @@ Draw a color-filled circle
 Language | Symbol
 --- | ---
 C | `void DrawCircle(int centerX, int centerY, float radius, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/circle(at:_:radius:color:)``
 
 #### DrawCircleSector
 
@@ -5766,7 +5766,7 @@ Draw a piece of a circle
 Language | Symbol
 --- | ---
 C | `void DrawCircleSector(Vector2 center, float radius, float startAngle, float endAngle, int segments, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/sector(at:radius:from:to:segments:color:)`` and ``Renderer2D/sector(at:_:radius:from:to:segments:color:)``
 
 #### DrawCircleSectorLines
 
@@ -5775,7 +5775,7 @@ Draw circle sector outline
 Language | Symbol
 --- | ---
 C | `void DrawCircleSectorLines(Vector2 center, float radius, float startAngle, float endAngle, int segments, Color color);`
-Swift | *unimplemented*
+Swift | ``WireRenderer2D/sector(at:radius:from:to:segments:color:)`` and ``WireRenderer2D/sector(at:_:radius:from:to:segments:color:)``
 
 #### DrawCircleGradient
 
@@ -5784,7 +5784,7 @@ Draw a gradient-filled circle
 Language | Symbol
 --- | ---
 C | `void DrawCircleGradient(int centerX, int centerY, float radius, Color color1, Color color2);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/circle(at:_:radius:gradient:_:)``
 
 #### DrawCircleV
 
@@ -5793,7 +5793,7 @@ Draw a color-filled circle
 Language | Symbol
 --- | ---
 C | `void DrawCircleV(Vector2 center, float radius, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/circle(at:radius:color:)``
 
 #### DrawCircleLines
 
@@ -5802,7 +5802,7 @@ Draw circle outline
 Language | Symbol
 --- | ---
 C | `void DrawCircleLines(int centerX, int centerY, float radius, Color color);`
-Swift | *unimplemented*
+Swift | ``WireRenderer2D/circle(at:_:radius:color:)``
 
 #### DrawEllipse
 
@@ -5811,7 +5811,7 @@ Draw ellipse
 Language | Symbol
 --- | ---
 C | `void DrawEllipse(int centerX, int centerY, float radiusH, float radiusV, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/ellipse(at:_:radius:_:color:)``
 
 #### DrawEllipseLines
 
@@ -5820,7 +5820,7 @@ Draw ellipse outline
 Language | Symbol
 --- | ---
 C | `void DrawEllipseLines(int centerX, int centerY, float radiusH, float radiusV, Color color);`
-Swift | *unimplemented*
+Swift | ``WireRenderer2D/ellipse(at:_:radius:_:color:)``
 
 #### DrawRing
 
@@ -5829,7 +5829,7 @@ Draw ring
 Language | Symbol
 --- | ---
 C | `void DrawRing(Vector2 center, float innerRadius, float outerRadius, float startAngle, float endAngle, int segments, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/ring(at:inner:outer:segments:from:to:color:)`` and ``Renderer2D/ring(at:_:inner:outer:segments:from:to:color:)``
 
 #### DrawRingLines
 
@@ -5838,7 +5838,7 @@ Draw ring outline
 Language | Symbol
 --- | ---
 C | `void DrawRingLines(Vector2 center, float innerRadius, float outerRadius, float startAngle, float endAngle, int segments, Color color);`
-Swift | *unimplemented*
+Swift | ``WireRenderer2D/ring(at:inner:outer:segments:from:to:color:)`` and ``WireRenderer2D/ring(at:_:inner:outer:segments:from:to:color:)``
 
 #### DrawRectangle
 
@@ -5847,7 +5847,7 @@ Draw a color-filled rectangle
 Language | Symbol
 --- | ---
 C | `void DrawRectangle(int posX, int posY, int width, int height, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/rectangle(at:_:size:_:color:)``
 
 #### DrawRectangleV
 
@@ -5856,7 +5856,7 @@ Draw a color-filled rectangle
 Language | Symbol
 --- | ---
 C | `void DrawRectangleV(Vector2 position, Vector2 size, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/rectangle(at:size:color:)``
 
 #### DrawRectangleRec
 
@@ -5865,7 +5865,7 @@ Draw a color-filled rectangle
 Language | Symbol
 --- | ---
 C | `void DrawRectangleRec(Rectangle rec, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/rectangle(_:color:)``
 
 #### DrawRectanglePro
 
@@ -5883,7 +5883,7 @@ Draw a vertical-gradient-filled rectangle
 Language | Symbol
 --- | ---
 C | `void DrawRectangleGradientV(int posX, int posY, int width, int height, Color color1, Color`
-Swift | *unimplemented*
+Swift | ``Renderer2D/rectangle(at:_:size:_:gradientV:_:)``
 
 #### DrawRectangleGradientH
 
@@ -5892,7 +5892,7 @@ Draw a horizontal-gradient-filled rectangle
 Language | Symbol
 --- | ---
 C | `void DrawRectangleGradientH(int posX, int posY, int width, int height, Color color1, Color`
-Swift | *unimplemented*
+Swift | ``Renderer2D/rectangle(at:_:size:_:gradientH:_:)``
 
 #### DrawRectangleGradientEx
 
@@ -5901,7 +5901,7 @@ Draw a gradient-filled rectangle with custom vertex colors
 Language | Symbol
 --- | ---
 C | `void DrawRectangleGradientEx(Rectangle rec, Color col1, Color col2, Color col3, Color col4);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/rectangle(_:gradient:_:_:_:)``
 
 #### DrawRectangleLines
 
@@ -5910,7 +5910,7 @@ Draw rectangle outline
 Language | Symbol
 --- | ---
 C | `void DrawRectangleLines(int posX, int posY, int width, int height, Color color);`
-Swift | *unimplemented*
+Swift | ``WireRenderer2D/rectangle(at:_:size:_:color:)``
 
 #### DrawRectangleLinesEx
 
@@ -5919,7 +5919,7 @@ Draw rectangle outline with extended parameters
 Language | Symbol
 --- | ---
 C | `void DrawRectangleLinesEx(Rectangle rec, float lineThick, Color color);`
-Swift | *unimplemented*
+Swift | ``WireRenderer2D/rectangle(at:_:size:_:thickness:color:)``
 
 #### DrawRectangleRounded
 
@@ -5928,7 +5928,7 @@ Draw rectangle with rounded edges
 Language | Symbol
 --- | ---
 C | `void DrawRectangleRounded(Rectangle rec, float roundness, int segments, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/roundedRectangle(_:color:)``
 
 #### DrawRectangleRoundedLines
 
@@ -5946,7 +5946,7 @@ Draw a color-filled triangle (vertex in counter-clockwise order!)
 Language | Symbol
 --- | ---
 C | `void DrawTriangle(Vector2 v1, Vector2 v2, Vector2 v3, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/triangle(_:_:_:color:)``
 
 #### DrawTriangleLines
 
@@ -5955,7 +5955,7 @@ Draw triangle outline (vertex in counter-clockwise order!)
 Language | Symbol
 --- | ---
 C | `void DrawTriangleLines(Vector2 v1, Vector2 v2, Vector2 v3, Color color);`
-Swift | *unimplemented*
+Swift | ``WireRenderer2D/triangle(_:_:_:color:)`` and ``Renderer2D/triangle(_:_:_:color:)``
 
 #### DrawTriangleFan
 
@@ -5982,7 +5982,7 @@ Draw a regular polygon
 Language | Symbol
 --- | ---
 C | `void DrawPoly(Vector2 center, int sides, float radius, float rotation, Color color);`
-Swift | *unimplemented*
+Swift | ``Renderer2D/polygon(at:sides:radius:rotation:color:)``
 
 #### DrawPolyLines
 
@@ -5991,7 +5991,7 @@ Draw a polygon outline of n sides
 Language | Symbol
 --- | ---
 C | `void DrawPolyLines(Vector2 center, int sides, float radius, float rotation, Color color);`
-Swift | *unimplemented*
+Swift | ``WireRenderer2D/polygon(at:sides:radius:rotation:color:)``
 
 #### DrawPolyLinesEx
 
@@ -6023,7 +6023,7 @@ Check collision between two rectangles
 Language | Symbol
 --- | ---
 C | `bool CheckCollisionRecs(Rectangle rec1, Rectangle rec2);`
-Swift | *unimplemented*
+Swift | ``Rectangle/collided(with:)-3syut``
 
 #### CheckCollisionCircles
 
@@ -6032,7 +6032,7 @@ Check collision between two circles
 Language | Symbol
 --- | ---
 C | `bool CheckCollisionCircles(Vector2 center1, float radius1, Vector2 center2, float radius2);`
-Swift | *unimplemented*
+Swift | ``Circle/collided(with:)-4c6tq``
 
 #### CheckCollisionCircleRec
 
@@ -6041,7 +6041,7 @@ Check collision between circle and rectangle
 Language | Symbol
 --- | ---
 C | `bool CheckCollisionCircleRec(Vector2 center, float radius, Rectangle rec);`
-Swift | *unimplemented*
+Swift | ``Rectangle/collided(with:)-1ia3k`` and ``Circle/collided(with:)-8wn3p``
 
 #### CheckCollisionPointRec
 
@@ -6050,7 +6050,7 @@ Check if point is inside rectangle
 Language | Symbol
 --- | ---
 C | `bool CheckCollisionPointRec(Vector2 point, Rectangle rec);`
-Swift | *unimplemented*
+Swift | ``Rectangle/contains(_:)``
 
 #### CheckCollisionPointCircle
 
@@ -6059,7 +6059,7 @@ Check if point is inside circle
 Language | Symbol
 --- | ---
 C | `bool CheckCollisionPointCircle(Vector2 point, Vector2 center, float radius);`
-Swift | *unimplemented*
+Swift | ``Rectangle/contains(_:)``
 
 #### CheckCollisionPointTriangle
 
@@ -6068,7 +6068,7 @@ Check if point is inside a triangle
 Language | Symbol
 --- | ---
 C | `bool CheckCollisionPointTriangle(Vector2 point, Vector2 p1, Vector2 p2, Vector2 p3);`
-Swift | *unimplemented*
+Swift | ``Triangle/contains(_:)``
 
 #### CheckCollisionLines
 
@@ -6077,7 +6077,7 @@ Check the collision between two lines defined by two points each, returns collis
 Language | Symbol
 --- | ---
 C | `bool CheckCollisionLines(Vector2 startPos1, Vector2 endPos1, Vector2 startPos2, Vector2 endPos2, Vector2 *collisionPoint);`
-Swift | *unimplemented*
+Swift | ``Line/collision(with:)``
 
 #### CheckCollisionPointLine
 
@@ -6095,7 +6095,7 @@ Get collision rectangle for two rectangles collision
 Language | Symbol
 --- | ---
 C | `Rectangle GetCollisionRec(Rectangle rec1, Rectangle rec2);`
-Swift | *unimplemented*
+Swift | ``Rectangle/collision(with:)``
 
 ## Texture Loading and Drawing Functions (Module: textures)
 

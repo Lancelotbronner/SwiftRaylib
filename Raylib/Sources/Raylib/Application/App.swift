@@ -1,9 +1,6 @@
-//
-//  File.swift
-//  
-//
-//  Created by Christophe Bronner on 2021-12-27.
-//
+// TODO: Find a way to plug an async load() method
+// TODO: Find a way to make scenes use an async load() method
+// TODO: Turn filesystem loads into async methods
 
 //MARK: - App
 
@@ -55,9 +52,9 @@ extension App {
 			action = scene.update()
 			scene.render()
 			
-			Renderer.render {
-				Renderer.clear(to: Renderer.background)
-				scene.draw()
+			Renderer.render { renderer in
+				renderer.clear(to: Renderer.background)
+				scene.draw(using: renderer)
 			}
 			
 			switch action {

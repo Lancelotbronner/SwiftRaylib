@@ -16,15 +16,23 @@ public struct Polygon {
 	public var position: Vector2f
 	public var sides: Int
 	public var radius: Float
-	public var rotation: Angle<Float>
+	
+	//MARK: Computed Properties
+	
+	@inlinable public var frame: Rectangle {
+		Rectangle(at: position - radius, size: Vector2f(diameter))
+	}
+	
+	@inlinable public var diameter: Float {
+		radius * 2
+	}
 	
 	//MARK: Initialization
 	
-	@inlinable public init(at position: Vector2f, sides: Int, radius: Float, rotation: Angle<Float> = .zero) {
+	@inlinable public init(at position: Vector2f, sides: Int, radius: Float) {
 		self.position = position
 		self.sides = sides
 		self.radius = radius
-		self.rotation = rotation
 	}
 	
 }

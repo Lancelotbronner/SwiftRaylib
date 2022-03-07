@@ -6,9 +6,11 @@
 //
 
 import CRaylib
-import Foundation // TODO: Remove Foundation dependency
 
-//MARK: - Floating Point Formatting
+//MARK: - Foundation Integration
+
+#if canImport(Foundation)
+import Foundation
 
 extension String.StringInterpolation {
 	
@@ -22,12 +24,4 @@ extension String.StringInterpolation {
 	
 }
 
-//MARK: - String Format
-
-extension String {
-	
-	public func format(_ pattern: String, _ values: Any...) -> String {
-		""
-	}
-	
-}
+#endif

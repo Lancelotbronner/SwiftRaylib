@@ -18,11 +18,11 @@ public final class RenderTexture {
 	//MARK: Computed Properties
 	
 	@inlinable public var depth: Texture {
-		underlying.depth.unmanaged
+		underlying.depth.toUnmanaged
 	}
 	
 	@inlinable public var texture: Texture {
-		underlying.texture.unmanaged
+		underlying.texture.toUnmanaged
 	}
 	
 	//MARK: Initialization
@@ -45,9 +45,9 @@ public final class RenderTexture {
 	
 	//MARK: Methods
 	
-	@inlinable public func render(draw block: () -> Void) {
+	@inlinable public func render(draw block: (Renderer2D) -> Void) {
 		BeginTextureMode(underlying)
-		block()
+		block(Renderer2D())
 		EndTextureMode()
 	}
 	

@@ -31,7 +31,7 @@ public struct Uniform<Scalar: UniformConvertible> {
 	}
 	
 	@usableFromInline init(get name: String, in shader: Shader) {
-		let index = GetShaderLocation(shader.underlying, name)
+		let index = GetShaderLocation(shader.implementation.raylib, name)
 		self.init(at: index, in: shader)
 	}
 	
@@ -42,10 +42,6 @@ public struct Uniform<Scalar: UniformConvertible> {
 	/// - Parameter value: The value to write
 	@inlinable public func write(_ value: Scalar) {
 		value.write(value, at: index, to: shader)
-	}
-	
-	@inlinable public func identify(as builtin: BuiltinUniform) {
-		shader.underlying.locs[builtin.index] = index
 	}
 	
 }
@@ -60,7 +56,7 @@ extension BuiltinUniformInstance {
 	
 	@inlinable public func write(_ value: Self, at index: Int32, to shader: Shader) {
 		withUnsafePointer(to: value) { pointer in
-			SetShaderValue(shader.underlying, index, pointer, UNIFORM_TYPE)
+			SetShaderValue(shader.implementation.raylib, index, pointer, UNIFORM_TYPE)
 		}
 	}
 	
@@ -84,7 +80,7 @@ extension BuiltinUniformSequence {
 	
 	@inlinable public func write(_ value: Self, at index: Int32, to shader: Shader) {
 		withUnsafePointer(to: value) { pointer in
-			SetShaderValueV(shader.underlying, index, pointer, Self.UNIFORM_TYPE, value.count.toInt32)
+			SetShaderValueV(shader.implementation.raylib, index, pointer, Self.UNIFORM_TYPE, value.count.toInt32)
 		}
 	}
 	

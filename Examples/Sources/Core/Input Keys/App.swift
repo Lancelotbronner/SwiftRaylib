@@ -32,8 +32,8 @@ import Raylib
 		}
 	}
 	
-	func draw() {
-		Renderer2D.text("Move the ball with the arrow keys", at: 10, 10, color: .darkGray)
-		Renderer2D.circle(at: ballPosition, radius: 50, color: .maroon)
+	func draw(using renderer: Renderer2D) {
+		renderer.text("Move the ball with the arrow keys", at: 10, 10, color: .darkGray)
+		renderer.circle(at: ballPosition, radius: 50, color: .maroon)
 	}
 }

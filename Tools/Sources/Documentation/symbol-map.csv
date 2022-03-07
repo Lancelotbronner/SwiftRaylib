@@ -1,5 +1,7 @@
 C | Swift
 
+RAYLIB_VERSION | Raylib/version
+
 RAYWHITE | Color/raywhite
 MAGENTA | Color/magenta
 BLANK | Color/blank
@@ -29,6 +31,15 @@ LIGHTGRAY | Color/lightGray
 
 SHADER_UNIFORM_INT |
 SHADER_UNIFORM_FLOAT |
+SHADER_UNIFORM_IVEC4 |
+SHADER_UNIFORM_IVEC3 |
+SHADER_UNIFORM_IVEC2 |
+SHADER_UNIFORM_VEC4 |
+SHADER_UNIFORM_VEC3 |
+SHADER_UNIFORM_VEC2 |
+
+SHADER_LOC_VERTEX_POSITION | BuiltinUniform/position
+SHADER_LOC_VERTEX_NORMAL | BuiltinUniform/normal
 
 Vector2 | Vector2f
 Vector3 | Vector3f
@@ -266,7 +277,7 @@ RestoreWindow | Window/restore()
 SetWindowIcon | Window/set(icon:)
 SetWindowTitle | Window/rename(to:)
 SetWindowPosition | Window/place(at:_:)
-SetWindowonitor | Window/assign(to:)
+SetWindowMonitor | Window/assign(to:)
 SetWindowMinSize | Window/resize(minimum:by:)
 SetWindowSize | Window/resize(to:by:)
 GetWindowHandle | Window/native
@@ -290,6 +301,7 @@ ShowCursor | Cursor/show()
 HideCursor | Cursor/hide()
 IsCursorHidden | Cursor/isHidden
 EnableCursor | Cursor/enable()
+DisableCursor | Cursor/disable()
 IsCursorOnScreen | Cursor/isOnScreen
 
 ClearBackground | Renderer/clear(to:)
@@ -330,7 +342,7 @@ GetTime | Time/lifetime
 
 GetRandomValue | Random/between(_:and:)
 SetRandomSeed | Random/seed(using:)
-TakeScreenshot | Monitor/screenshot(as:)
+TakeScreenshot | Screen/screenshot(as:)
 TraceLog | Trace/log(_:_:), Trace/trace(_:), Trace/debug(_:), Trace/info(_:), Trace/warning(_:), Trace/error(_:), Trace/fatal(_:)
 SetTraceLogLevel | Trace/configure(threshold:)
 MemAlloc | Allocator/allocate(size:)
@@ -365,3 +377,62 @@ SetMouseOffset | Mouse/offset(by:)
 SetMouseScale | Mouse/scale(by:)
 GetMouseWheelMove | Mouse/wheel
 SetMouseCursor | Cursor/style(to:)
+
+DrawPixel | Renderer2D/pixel(at:_:_:)
+DrawPixelV | Renderer2D/pixel(at:_:)
+DrawLine | Renderer2D/line(from:_:to:_:color:)
+DrawLineV | Renderer2D/line(from:to:color:)
+DrawLineEx | Renderer2D/line(from:to:thickness:color:), Renderer2D/line(from:_:to:_:thickness:color:)
+DrawLineBezier | Renderer2D/bezier(from:to:thickness:color:), Renderer2D/bezier(from:_:to:_:thickness:color:)
+DrawLineBezierQuad | Renderer2D/bezier(from:to:control:thickness:color:), Renderer2D/bezier(from:_:to:_:control:_:thickness:color:)
+DrawLineStrip | Renderer2D/lines(_:color:)
+DrawCircle | Renderer2D/circle(at:_:radius:color:)
+DrawCircleSector | Renderer2D/sector(at:radius:from:to:segments:color:), Renderer2D/sector(at:_:radius:from:to:segments:color:)
+DrawCircleSectorLines | OutlineRenderer2D/sector(at:radius:from:to:segments:color:), OutlineRenderer2D/sector(at:_:radius:from:to:segments:color:)
+DrawCircleGradient | Renderer2D/circle(at:_:radius:gradient:_:)
+DrawCircleV | Renderer2D/circle(at:radius:color:)
+DrawCircleLines | OutlineRenderer2D/circle(at:_:radius:color:)
+DrawEllipse | Renderer2D/ellipse(at:_:radius:_:color:)
+DrawEllipseLines | OutlineRenderer2D/ellipse(at:_:radius:_:color:)
+DrawRing | Renderer2D/ring(at:inner:outer:segments:from:to:color:), Renderer2D/ring(at:_:inner:outer:segments:from:to:color:)
+DrawRingLines | OutlineRenderer2D/ring(at:inner:outer:segments:from:to:color:), OutlineRenderer2D/ring(at:_:inner:outer:segments:from:to:color:)
+DrawRectangle | Renderer2D/rectangle(at:_:size:_:color:)
+DrawRectangleV | Renderer2D/rectangle(at:size:color:)
+DrawRectangleRec | Renderer2D/rectangle(_:color:)
+DrawRectangleGradientV | Renderer2D/rectangle(at:_:size:_:gradientV:_:)
+DrawRectangleGradientH | Renderer2D/rectangle(at:_:size:_:gradientH:_:)
+DrawRectangleGradientEx | Renderer2D/rectangle(_:gradient:_:_:_:)
+DrawRectangleLines | OutlineRenderer2D/rectangle(at:_:size:_:color:)
+DrawRectangleLinesEx | OutlineRenderer2D/rectangle(at:_:size:_:thickness:color:)
+DrawRectangleRounded | Renderer2D/roundedRectangle(_:color:)
+DrawTriangle | Renderer2D/triangle(_:_:_:color:)
+DrawTriangleLines | OutlineRenderer2D/triangle(_:_:_:color:), Renderer2D/triangle(_:_:_:color:)
+DrawPoly | Renderer2D/polygon(at:sides:radius:rotation:color:)
+DrawPolyLines | OutlineRenderer2D/polygon(at:sides:radius:rotation:color:)
+
+CheckCollisionRecs | Rectangle/collided(with:)-3syut
+CheckCollisionCircles | Circle/collided(with:)-4c6tq
+CheckCollisionCircleRec | Rectangle/collided(with:)-1ia3k, Circle/collided(with:)-8wn3p
+CheckCollisionPointRec | Rectangle/contains(_:)
+CheckCollisionPointCircle | Rectangle/contains(_:)
+CheckCollisionPointTriangle | Triangle/contains(_:)
+CheckCollisionLines | Line/collision(with:)
+GetCollisionRec | Rectangle/collision(with:)
+
+LoadImage | File/loadAsImage()
+LoadImageRaw | File/loadAsRawImage(size:by:format:offset:)
+LoadImageAnim | File/loadAsAnimation(frames:)
+LoadImageFromMemory |
+LoadImageFromTexture | Texture/convertToImage()
+LoadImageFromScreen | Screen/screenshot()
+UnloadImage |
+ExportImage | File/write(image:)
+ExportImageAsCode |
+
+GenImageColor | BuiltinImage/color(size:by:of:)
+GenImageGradientV | BuiltinImage/gradientV(size:by:from:to:)
+GenImageGradientH | BuiltinImage/gradientH(size:by:from:to:)
+GenImageGradientRadial | BuiltinImage/gradientRadial(size:by:density:from:to:)
+GenImageChecked | BuiltinImage/checked(size:by:tiles:_:colors:_:)
+GenImageWhiteNoise | BuiltinImage/whiteNoise(size:by:factor:)
+GenImageCellular | BuiltinImage/cellular(size:by:cell:)

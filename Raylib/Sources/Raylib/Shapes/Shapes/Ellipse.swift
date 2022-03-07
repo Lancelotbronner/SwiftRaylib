@@ -14,6 +14,16 @@ public struct Ellipse {
 	public var position: Vector2f
 	public var radius: Vector2f
 	
+	//MARK: Computed Properties
+	
+	@inlinable public var frame: Rectangle {
+		Rectangle(at: position - radius, size: diameter)
+	}
+	
+	@inlinable public var diameter: Vector2f {
+		radius * 2
+	}
+	
 	//MARK: Initialization
 	
 	@inlinable public init(at position: Vector2f, radius: Vector2f) {

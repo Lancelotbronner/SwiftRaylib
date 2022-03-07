@@ -21,10 +21,10 @@ import Raylib
 		boxPositionY -= Mouse.wheel * 4
 	}
 	
-	func draw() {
-		Renderer2D.rectangle(at: Window.width / 2 - 40, boxPositionY.toInt, size: 80, 80, color: .maroon)
+	func draw(using renderer: Renderer2D) {
+		renderer.rectangle(at: Window.width / 2 - 40, boxPositionY.toInt, size: 80, 80, color: .maroon)
 		
-		Renderer2D.text("Use mouse wheel to move the cube up and down!", at: 10, 10, color: .gray)
-		Renderer2D.text("Box position Y: \(boxPositionY, decimals: 0, digits: 3)", at: 10, 40, color: .lightGray);
+		renderer.text("Use mouse wheel to move the cube up and down!", at: 10, 10, color: .gray)
+		renderer.text("Box position Y: \(boxPositionY, decimals: 0, digits: 3)", at: 10, 40, color: .lightGray);
 	}
 }

@@ -30,10 +30,6 @@ public struct Directory: Sequence {
 	//MARK: Initialization
 	
 	@usableFromInline init(at path: Path) {
-		self.path = path.description
-	}
-	
-	@usableFromInline init(at path: String) {
 		self.path = path
 	}
 	

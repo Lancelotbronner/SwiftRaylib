@@ -16,6 +16,14 @@ public struct Line {
 	public var start: Vector2f
 	public var end: Vector2f
 	
+	@inlinable public var frame: Rectangle {
+		let minX = min(start.x, end.x)
+		let maxX = max(start.x, end.x)
+		let minY = min(start.y, end.y)
+		let maxY = max(start.y, end.y)
+		return Rectangle(at: minX, minY, size: maxX - minX, maxY - minY)
+	}
+	
 	//MARK: Initialization
 	
 	public init(from start: Vector2f, to end: Vector2f) {

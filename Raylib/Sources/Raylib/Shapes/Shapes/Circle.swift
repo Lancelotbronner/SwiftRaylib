@@ -18,6 +18,10 @@ public struct Circle {
 	
 	//MARK: Computed Properties
 	
+	@inlinable public var frame: Rectangle {
+		Rectangle(at: position - radius, size: Vector2f(diameter))
+	}
+	
 	@inlinable public var left: Vector2f {
 		Vector2f(position.x - radius, position.y)
 	}

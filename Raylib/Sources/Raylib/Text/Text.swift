@@ -13,7 +13,7 @@ public struct Text {
 	
 	//MARK: Measure
 	
-	public static func measure(_ text: String, size: Int = Renderer.textSize) -> Int {
+	public static func measure(_ text: String, size: Int = Renderer.pointSize) -> Int {
 		MeasureText(text, size.toInt32).toInt
 	}
 	

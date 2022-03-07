@@ -88,7 +88,7 @@ extension Color {
 
 	@inlinable public static var white: Color { .rgb(255, 255, 255) }
 	@inlinable public static var black: Color { .rgb(0, 0, 0) }
-	@inlinable public static var blank: Color { .rgb(0, 0, 0) }
+	@inlinable public static var clear: Color { .rgb(0, 0, 0) }
 	@inlinable public static var magenta: Color { .rgb(255, 0, 255) }
 	@inlinable public static var raywhite: Color { .rgb(245, 245, 245) }
 	

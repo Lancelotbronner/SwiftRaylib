@@ -76,6 +76,8 @@ public enum PixelFormat {
 	/// RGBA, alpha, 2 bpp, ASTC 8x8 compression
 	case astc8
 	
+	case unknown(UInt32)
+	
 	//MARK: Computed Properties
 	
 	@inlinable public var toRaylib: UInt32 {
@@ -101,6 +103,36 @@ public enum PixelFormat {
 		case .pvrtWithAlpha: return PIXELFORMAT_COMPRESSED_PVRT_RGBA.rawValue
 		case .astc4: return PIXELFORMAT_COMPRESSED_ASTC_4x4_RGBA.rawValue
 		case .astc8: return PIXELFORMAT_COMPRESSED_ASTC_8x8_RGBA.rawValue
+		case let .unknown(rawValue): return rawValue
+		}
+	}
+	
+	//MARK: Initialization
+	
+	@usableFromInline init(raylib value: Int32) {
+		switch UInt32(value) {
+		case PIXELFORMAT_UNCOMPRESSED_GRAYSCALE.rawValue: self = .w8
+		case PIXELFORMAT_UNCOMPRESSED_GRAY_ALPHA.rawValue: self = .wa8
+		case PIXELFORMAT_UNCOMPRESSED_R5G6B5.rawValue: self = .r5g6b5
+		case PIXELFORMAT_UNCOMPRESSED_R8G8B8.rawValue: self = .rgb8
+		case PIXELFORMAT_UNCOMPRESSED_R5G5B5A1.rawValue: self = .rgb5a1
+		case PIXELFORMAT_UNCOMPRESSED_R4G4B4A4.rawValue: self = .rgba4
+		case PIXELFORMAT_UNCOMPRESSED_R8G8B8A8.rawValue: self = .rgba8
+		case PIXELFORMAT_UNCOMPRESSED_R32.rawValue: self = .r32f
+		case PIXELFORMAT_UNCOMPRESSED_R32G32B32.rawValue: self = .rgb32f
+		case PIXELFORMAT_UNCOMPRESSED_R32G32B32A32.rawValue: self = .rgba32f
+		case PIXELFORMAT_COMPRESSED_DXT1_RGB.rawValue: self = .dxt1
+		case PIXELFORMAT_COMPRESSED_DXT1_RGBA.rawValue: self = .dxt1WithAlpha
+		case PIXELFORMAT_COMPRESSED_DXT3_RGBA.rawValue: self = .dxt3WithAlpha
+		case PIXELFORMAT_COMPRESSED_DXT5_RGBA.rawValue: self = .dxt5WithAlpha
+		case PIXELFORMAT_COMPRESSED_ETC1_RGB.rawValue: self = .etc1
+		case PIXELFORMAT_COMPRESSED_ETC2_RGB.rawValue: self = .etc2
+		case PIXELFORMAT_COMPRESSED_ETC2_EAC_RGBA.rawValue: self = .etc2WithAlpha
+		case PIXELFORMAT_COMPRESSED_PVRT_RGB.rawValue: self = .pvrt
+		case PIXELFORMAT_COMPRESSED_PVRT_RGBA.rawValue: self = .pvrtWithAlpha
+		case PIXELFORMAT_COMPRESSED_ASTC_4x4_RGBA.rawValue: self = .astc4
+		case PIXELFORMAT_COMPRESSED_ASTC_8x8_RGBA.rawValue: self = .astc8
+		default: self = .unknown(value.toUInt32)
 		}
 	}
 	

@@ -1,8 +1,8 @@
-.DS_Store
-/.build
-/Packages
-/*.xcodeproj
-xcuserdata/
+**/.DS_Store
+**/.build
+**/Packages
+**/xcuserdata/
+**/*.xcuserdata
 DerivedData/
-.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+**/.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 Dependencies/Built

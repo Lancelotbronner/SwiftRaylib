@@ -48,30 +48,30 @@ import Raylib
 		cameraStyle.update(&camera, for: player)
 	}
 	
-	func draw() {
-		camera.render {
-			Renderer.shapeColor = .gray
+	func draw(using renderer: Renderer2D) {
+		camera.render { view in
+			Renderer.color = .gray
 			
 			for obstacle in environment {
-				Renderer2D.rectangle(obstacle)
+				view.rectangle(obstacle)
 			}
 			
-			Renderer2D.rectangle(at: player.position.x.toInt - 20, player.position.y.toInt - 40, size: 40, 40, color: .red)
+			view.rectangle(at: player.position.x.toInt - 20, player.position.y.toInt - 40, size: 40, 40, color: .red)
 		}
 		
-		Renderer.textSize = 10
+		Renderer.pointSize = 10
 		
 		Renderer.textColor = .black
-		Renderer2D.text("Controls:", at: 20, 20)
-		Renderer2D.text("Camera mode:", at: 20, 140)
+		renderer.text("Controls:", at: 20, 20)
+		renderer.text("Camera mode:", at: 20, 140)
 		
 		Renderer.textColor = .darkGray
-		Renderer2D.text("- Right/Left to move", at: 40, 40)
-		Renderer2D.text("- Space to jump", at: 40, 60)
-		Renderer2D.text("- Mouse Wheel to Zoom in-out", at: 40, 80)
-		Renderer2D.text("- R to reset zoom and position", at: 40, 100)
-		Renderer2D.text("- C to change camera mode", at: 40, 120)
-		Renderer2D.text(cameraStyle.name, at: 40, 160)
+		renderer.text("- Right/Left to move", at: 40, 40)
+		renderer.text("- Space to jump", at: 40, 60)
+		renderer.text("- Mouse Wheel to Zoom in-out", at: 40, 80)
+		renderer.text("- R to reset zoom and position", at: 40, 100)
+		renderer.text("- C to change camera mode", at: 40, 120)
+		renderer.text(cameraStyle.name, at: 40, 160)
 	}
 }
 
@@ -119,10 +119,10 @@ struct Player {
 		
 		let newY = position.y + speed * Time.delta
 		let hit = environment.first { obstacle in
-			obstacle.left.x <= position.x
-			&& obstacle.right.x >= position.x
-			&& obstacle.bottom.y >= position.y
-			&& obstacle.bottom.y < newY
+			obstacle.left.x <= position.x + 20
+			&& obstacle.right.x >= position.x - 20
+			&& obstacle.top.y >= position.y
+			&& obstacle.top.y < newY
 		}
 		
 		if let obstacle = hit {
@@ -178,8 +178,8 @@ enum CameraStyles {
 			var max = map
 			
 			for obstacle in environment {
-				min.maximum(of: obstacle.bottomLeft)
-				max.minimum(of: obstacle.topRight)
+				min.maximum(of: obstacle.topLeft)
+				max.minimum(of: obstacle.bottomRight)
 			}
 			
 			min = camera.toScreen(world: min)
@@ -223,7 +223,7 @@ enum CameraStyles {
 	struct EvenOutOnLandingCameraStyle: CameraStyle {
 		let speed: Float = 700
 		
-		let name = "Follow player center horizontally; updateplayer center vertically after landing"
+		let name = "Follow player center horizontally; update player center vertically after landing"
 		
 		private var active = false
 		private var target: Float = 0

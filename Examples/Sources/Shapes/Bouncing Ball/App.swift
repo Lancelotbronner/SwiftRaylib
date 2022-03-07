@@ -44,15 +44,15 @@ import Raylib
 		}
 	}
 	
-	func draw() {
-		Renderer2D.circle(at: position, radius: BALL_RADIUS.toFloat, color: .maroon)
-		Renderer2D.text("PRESS SPACE TO PAUSE", at: 10, Window.height - 25, size: 20, color: .lightGray)
+	func draw(using renderer: Renderer2D) {
+		renderer.circle(at: position, radius: BALL_RADIUS.toFloat, color: .maroon)
+		renderer.text("PRESS SPACE TO PAUSE", at: 10, Window.height - 25, size: 20, color: .lightGray)
 		
 		if paused, framesCounter / 30 % 2 == 0 {
-			Renderer2D.text("PAUSED", at: 350, 200, size: 40, color: .gray)
+			renderer.text("PAUSED", at: 350, 200, size: 40, color: .gray)
 		}
 		
-		Renderer2D.fps(at: 10, 10)
+		renderer.fps(at: 10, 10)
 	}
 	
 }

@@ -67,9 +67,9 @@ public struct Camera2D {
 	}
 	
 	/// Begin 2D mode; End 2D mode
-	@inlinable public func render(draw: () -> Void) {
+	@inlinable public func render(draw: (Renderer2D) -> Void) {
 		BeginMode2D(underlying)
-		draw()
+		draw(Renderer2D())
 		EndMode2D()
 	}
 	

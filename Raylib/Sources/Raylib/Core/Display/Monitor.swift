@@ -75,12 +75,4 @@ public struct Monitor {
 		self.id = id
 	}
 	
-	//MARK: Methods
-	
-	/// Takes a screenshot of current screen (filename extension defines format)
-	@inlinable public static func screenshot(as filename: String) {
-		// TODO: Maybe move this elsewhere?
-		TakeScreenshot(filename)
-	}
-	
 }

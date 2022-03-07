@@ -47,16 +47,16 @@ import Darwin
 		}
 	}
 	
-	func draw() {
-		Renderer2D.circle(at: leftEye, radius: EYE_RADIUS, color: .lightGray)
-		Renderer2D.circle(at: leftIris, radius: IRIS_RADIUS, color: .brown)
-		Renderer2D.circle(at: leftIris, radius: IRIS_RADIUS / 2, color: .black)
+	func draw(using renderer: Renderer2D) {
+		renderer.circle(at: leftEye, radius: EYE_RADIUS, color: .lightGray)
+		renderer.circle(at: leftIris, radius: IRIS_RADIUS, color: .brown)
+		renderer.circle(at: leftIris, radius: IRIS_RADIUS / 2, color: .black)
 		
-		Renderer2D.circle(at: rightEye, radius: EYE_RADIUS, color: .lightGray)
-		Renderer2D.circle(at: rightIris, radius: IRIS_RADIUS, color: .darkGreen)
-		Renderer2D.circle(at: rightIris, radius: IRIS_RADIUS / 2, color: .black)
+		renderer.circle(at: rightEye, radius: EYE_RADIUS, color: .lightGray)
+		renderer.circle(at: rightIris, radius: IRIS_RADIUS, color: .darkGreen)
+		renderer.circle(at: rightIris, radius: IRIS_RADIUS / 2, color: .black)
 		
-		Renderer2D.fps(at: 10, 10)
+		renderer.fps(at: 10, 10)
 	}
 	
 }

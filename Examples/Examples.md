@@ -19,8 +19,8 @@ All C examples should be reimplemented in Swift.
 [ ] 3D Picking
 [ ] 3D World Screen
 [ ] Custom Logging
-[ ] Window Letterbox
-[ ] Drop Files
+[x] Window Letterbox
+[x] Drop Files
 [ ] Random Values
 [ ] Scissor Test
 [ ] Storage Values
@@ -31,14 +31,14 @@ All C examples should be reimplemented in Swift.
 ## Shapes
 
 [x] Basic Shapes
-[ ] Bouncing Ball
+[x] Bouncing Ball
 [x] Color Palette
 [ ] Logo Raylib
 [ ] Logo Raylib Animation
 [ ] Rectangle Scaling
 [ ] Lines Bezier
 [ ] Collision Area
-[ ] Following Eyes
+[x] Following Eyes
 [ ] Easings Ball Animation
 [ ] Easings Box Animation
 [ ] Easings Rectangle Array
